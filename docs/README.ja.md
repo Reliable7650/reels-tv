@@ -8,6 +8,12 @@ Instagram Reels をリモコンで視聴しやすくする Android TV 向けイ�
 
 このプロジェクトは独立しており、Instagram、Meta、Xunlei と提携・公認された製品でも、各社の公式製品でもありません。Instagram のウェブサイトや利用可能な機能は予告なく変わる場合があります。
 
+## テレビでのデモ
+
+![テレビでオリジナルのデモ動画を再生する Reels TV](media/reels-tv-television.jpg)
+
+[12秒のテレビ録画を見る](media/reels-tv-television.mp4). このオフラインデモはオリジナルのサンプル動画を使用し、Instagram の操作は模擬したものです。実際のアカウントや Instagram のコンテンツは表示していません。
+
 ## 機能
 
 - テレビのリモコンで前後の Reel に移動。

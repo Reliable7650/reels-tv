@@ -8,6 +8,12 @@ Reels 시청이 핵심 기능입니다. Reels만 시청하려면 표준판을, �
 
 이 프로젝트는 독립 프로젝트로, Instagram, Meta 또는 Xunlei와 제휴하거나 이들의 보증을 받은 제품 또는 공식 제품이 아닙니다. Instagram 웹사이트와 사용 가능한 기능은 예고 없이 변경될 수 있습니다.
 
+## TV 시연
+
+![TV에서 독창적인 시연 영상을 재생하는 Reels TV](media/reels-tv-television.jpg)
+
+[12초 TV 녹화 영상 보기](media/reels-tv-television.mp4). 이 오프라인 시연은 직접 제작한 샘플 영상을 사용하며 Instagram 동작은 모의로 보여줍니다. 실제 계정이나 Instagram 콘텐츠는 표시하지 않습니다.
+
 ## 기능
 
 - TV 리모컨으로 이전 또는 다음 Reel로 이동합니다.

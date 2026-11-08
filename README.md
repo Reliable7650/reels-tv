@@ -8,6 +8,12 @@ Watching Reels is the core experience. Choose the standard edition for Reels alo
 
 This is an independent project. It is not affiliated with, endorsed by, or an official product of Instagram, Meta, or Xunlei. Instagram's website and available features may change without notice.
 
+## Preview
+
+![Reels TV running on a television with an original demonstration video](docs/media/reels-tv-television.jpg)
+
+[Watch the 12-second television recording](docs/media/reels-tv-television.mp4). This offline demonstration uses an original sample video and simulated Instagram actions; it does not show a real account or live Instagram content.
+
 ## Features
 
 - Navigate to the previous or next Reel with a TV remote.

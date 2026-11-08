@@ -8,6 +8,12 @@
 
 本项目是独立项目，并非 Instagram、Meta 或迅雷的关联、认可或官方产品。Instagram 网站及可用功能可能随时变化，恕不另行通知。
 
+## 电视演示
+
+![Reels TV 在电视上播放原创演示视频](media/reels-tv-television.jpg)
+
+[观看 12 秒电视录屏](media/reels-tv-television.mp4). 此离线演示使用原创样片，Instagram 操作是模拟的；画面不包含真实账号或 Instagram 内容。
+
 ## 功能
 
 - 使用电视遥控器切换到上一条或下一条 Reel。

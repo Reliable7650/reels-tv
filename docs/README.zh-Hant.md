@@ -8,6 +8,12 @@
 
 本專案是獨立專案，並非 Instagram、Meta 或迅雷的關聯、認可或官方產品。Instagram 網站及可用功能可能隨時變更，恕不另行通知。
 
+## 電視示範
+
+![Reels TV 在電視上播放原創示範影片](media/reels-tv-television.jpg)
+
+[觀看 12 秒電視錄影](media/reels-tv-television.mp4). 此離線示範使用原創樣片，Instagram 操作為模擬；畫面不包含真實帳號或 Instagram 內容。
+
 ## 功能
 
 - 使用電視遙控器切換至上一則或下一則 Reel。
