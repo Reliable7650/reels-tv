@@ -191,9 +191,15 @@ public final class ReelsTvActivity extends Activity {
             sidebar.addView(button, params);
             buttons[i] = button;
         }
+        buttons[3].setVisibility(BuildConfig.XUNLEI ? View.VISIBLE : View.GONE);
+        buttons[5].setVisibility(View.GONE);
         for (int i = 0; i < buttons.length; i++) {
-            buttons[i].setNextFocusUpId(buttons[Math.max(0, i - 1)].getId());
-            buttons[i].setNextFocusDownId(buttons[Math.min(buttons.length - 1, i + 1)].getId());
+            int up = i - 1;
+            while (up >= 0 && buttons[up].getVisibility() != View.VISIBLE) up--;
+            int down = i + 1;
+            while (down < buttons.length && buttons[down].getVisibility() != View.VISIBLE) down++;
+            buttons[i].setNextFocusUpId(buttons[up >= 0 ? up : i].getId());
+            buttons[i].setNextFocusDownId(buttons[down < buttons.length ? down : i].getId());
             buttons[i].setNextFocusRightId(buttons[i].getId());
             buttons[i].setNextFocusLeftId(web.getId());
         }
@@ -203,7 +209,6 @@ public final class ReelsTvActivity extends Activity {
         buttons[3].setOnClickListener(view -> favorite());
         buttons[4].setOnClickListener(view -> rotateVideo());
         buttons[5].setOnClickListener(view -> startAction(1));
-        buttons[5].setVisibility(View.GONE);
         buttons[6].setOnClickListener(view -> toggleAutoZoom());
         buttons[6].setEnabled(false);
         buttons[6].setAlpha(.45f);
@@ -921,7 +926,7 @@ public final class ReelsTvActivity extends Activity {
             buttons[i].setEnabled(listAvailable);
             buttons[i].setAlpha(listAvailable ? 1f : .45f);
         }
-        buttons[3].setEnabled(available && pictureReady);
+        buttons[3].setEnabled(BuildConfig.XUNLEI && available && pictureReady);
         buttons[3].setAlpha(available && pictureReady ? 1f : .45f);
         buttons[4].setEnabled(available && pictureReady);
         buttons[4].setAlpha(available && pictureReady ? 1f : .45f);
@@ -931,9 +936,11 @@ public final class ReelsTvActivity extends Activity {
         buttons[6].setContentDescription(getString(nativeVideo != null && !nativeVideo.isAutoZoom()
                 ? R.string.rail_fit_description : R.string.rail_zoom_description));
         updateActionButtons();
-        if (available && pictureReady && embed && (selectedButton == null || !selectedButton.isEnabled())) selectedButton = buttons[3];
+        if (available && pictureReady && embed && (selectedButton == null || !selectedButton.isEnabled()
+                || selectedButton.getVisibility() != View.VISIBLE)) selectedButton = buttons[BuildConfig.XUNLEI ? 3 : 4];
         if (mediaFailed && (selectedButton == buttons[3] || selectedButton == buttons[4] || selectedButton == buttons[6])) selectedButton = buttons[1];
-        if (available && !pointerMode && selectedButton != null && selectedButton.isEnabled()) selectedButton.requestFocus();
+        if (available && !pointerMode && selectedButton != null && selectedButton.isEnabled()
+                && selectedButton.getVisibility() == View.VISIBLE) selectedButton.requestFocus();
     }
 
     private boolean actionPageMatches(String reel) {
@@ -1106,7 +1113,7 @@ public final class ReelsTvActivity extends Activity {
         stopNative();
         showNativeMessage(getString(R.string.rail_status_paused));
         try {
-            startActivityForResult(new Intent(this, CloudFavoriteActivity.class)
+            startActivityForResult(new Intent().setClassName(this, "com.gathin.instagramremote.CloudFavoriteActivity")
                     .putExtra("reel_url", currentURL)
                     .putExtra("media_source", cachedSource)
                     .putExtra("media_user_agent", publicUserAgent), 7301);
@@ -1199,7 +1206,8 @@ public final class ReelsTvActivity extends Activity {
         if (heldDirections.get(KeyEvent.KEYCODE_DPAD_RIGHT) && web.x >= web.getWidth() - edge) {
             stopMoving();
             pointerMode = false;
-            if (!selectedButton.isEnabled()) selectedButton = buttons[1];
+            if (!selectedButton.isEnabled() || selectedButton.getVisibility() != View.VISIBLE)
+                selectedButton = buttons[4].isEnabled() ? buttons[4] : buttons[1];
             selectedButton.requestFocus();
             return;
         }
@@ -1308,7 +1316,11 @@ public final class ReelsTvActivity extends Activity {
     @Override public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
         if (!hasFocus) stopMoving();
-        else if (!pointerMode && selectedButton != null) selectedButton.requestFocus();
+        else if (!pointerMode && selectedButton != null) {
+            if (!selectedButton.isEnabled() || selectedButton.getVisibility() != View.VISIBLE)
+                selectedButton = buttons[4].isEnabled() ? buttons[4] : buttons[1];
+            selectedButton.requestFocus();
+        }
     }
 
     @Override protected void onDestroy() {

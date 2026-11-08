@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import vm from 'node:vm';
 import test from 'node:test';
-const code = fs.readFileSync(new URL('../src/main/assets/cloud-favorite.js', import.meta.url), 'utf8');
+const code = fs.readFileSync(new URL('../src/xunlei/assets/cloud-favorite.js', import.meta.url), 'utf8');
 const element = (title, visible = true) => ({
     textContent: title,
     getAttribute: key => key === 'title' ? title : null,
