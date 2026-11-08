@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="msg_script_missing">The Reels web control script is missing</string>
+    <string name="msg_player_missing">Cannot open the video. Please reinstall the app</string>
+    <string name="msg_https_only">Only official Instagram HTTPS pages are supported</string>
+    <string name="msg_offline_test">Offline error recovery check: automatic connection is paused</string>
+    <string name="msg_unofficial_blocked">Blocked an unofficial page</string>
+    <string name="msg_open_instagram">Opening Instagram…</string>
+    <string name="msg_verify_official">Instagram requires verification. Please complete it yourself on the official page</string>
+    <string name="msg_open_video">Opening video…</string>
+    <string name="msg_login_official">Please log in on the official Instagram page</string>
+    <string name="msg_wait_video">Waiting for Instagram video…</string>
+    <string name="msg_page_network">The Instagram page cannot be loaded right now. Check your network and try again</string>
+    <string name="msg_page_unavailable">The Instagram page cannot be loaded right now</string>
+    <string name="msg_login_required">Instagram requires you to log in to continue watching or liking videos</string>
+    <string name="dialog_login_title">Instagram login required</string>
+    <string name="dialog_login_body">Instagram limits continuous browsing when you are not logged in. Log in to continue watching recommended videos or liking them.</string>
+    <string name="action_open_official">Open official page</string>
+    <string name="action_home">Return to home screen</string>
+    <string name="msg_auth_paused">Instagram previously requested login or verification, so automatic connection remains paused. The official page will only be connected when you manually continue</string>
+    <string name="msg_connection_paused">Instagram connection is paused. Please retry manually later</string>
+    <string name="msg_rate_limited">Instagram has temporarily restricted access. Automatic connection is paused; please retry manually later</string>
+    <string name="dialog_auth_title">Login or verification paused</string>
+    <string name="dialog_page_title">Page temporarily unavailable</string>
+    <string name="dialog_cancel_note">Canceling returns to the home screen and will not reconnect.</string>
+    <string name="action_continue_official">Continue to official page</string>
+    <string name="action_retry">Retry manually</string>
+    <string name="msg_source_missing">The current page has not provided a playback URL yet. Press Play to retry, or switch to the next item</string>
+    <string name="msg_video_unavailable">Cannot open this video. Please return to the list and try again</string>
+    <string name="msg_video_page_network">Failed to load the video page. Check your network and try again</string>
+    <string name="msg_embed_unavailable">The public playback page is temporarily unavailable. Automatic attempts have stopped</string>
+    <string name="msg_video_timeout">Opening the video timed out. Return to the web page to check your login or retry</string>
+    <string name="msg_playback_failed">Video playback failed. Press Play to retry</string>
+    <string name="msg_retry_wait">An attempt was just made. Please retry manually later</string>
+    <string name="msg_single_video">This is a standalone video. Return to the Reels list to switch videos</string>
+    <string name="msg_switching">Switching Reel…</string>
+    <string name="msg_switch_failed">Cannot switch right now. Please try again later</string>
+    <string name="msg_no_favorite_url">No public Reel URL available to save has been identified yet</string>
+    <string name="msg_favorite_missing">TVsony favorites entry not found</string>
+    <string name="msg_browsing">Browsing the web page. Return to the sidebar to continue playback</string>
+    <string name="msg_favorite_saved">Saved to Xunlei / TVsony favorites</string>
+    <string name="msg_not_interested_done">Submitted “Not interested”</string>
+    <string name="msg_remote_hint">Use the directional buttons to move · Press Select to click</string>
+</resources>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="service_name">Instagram 遥控助手</string>
+    <string name="service_description">仅在 Instagram 内使用方向键移动指针，确认键点击。键盘和其他应用不筛选按键；音量键、频道键保留原有用途。不读取或保存输入内容。</string>
+    <string-array name="rail_descriptions">
+        <item>上一条</item>
+        <item>下一条</item>
+        <item>点赞</item>
+        <item>收藏到迅雷</item>
+        <item>向左旋转</item>
+        <item>不感兴趣</item>
+        <item>画面：自动放大</item>
+    </string-array>
+    <string name="rail_like_description">点赞</string>
+    <string name="rail_liked_description">已点赞</string>
+    <string name="rail_fit_description">画面：原始比例</string>
+    <string name="rail_zoom_description">画面：自动放大</string>
+    <string name="rail_status_playing">正在播放</string>
+    <string name="rail_status_paused">视频已暂停</string>
+    <string name="rail_status_rotated">画面已向左旋转</string>
+    <string name="rail_like_pending">正在点赞…</string>
+    <string name="rail_like_unavailable">点赞暂不可用</string>
+    <string name="rail_like_unconfirmed">未能确认点赞</string>
+</resources>

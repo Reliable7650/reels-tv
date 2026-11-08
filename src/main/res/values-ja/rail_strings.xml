@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="service_name">Instagram リモコンアシスタント</string>
+    <string name="service_description">Instagram で方向キーを使ってポインターを動かし、決定キーでクリックします。キーボードや他のアプリのキー操作、音量・チャンネル操作はそのままです。入力内容の読み取りや保存は行いません。</string>
+    <string-array name="rail_descriptions">
+        <item>前の動画</item>
+        <item>次の動画</item>
+        <item>いいね</item>
+        <item>迅雷に保存</item>
+        <item>左に回転</item>
+        <item>興味なし</item>
+        <item>画面：自動拡大</item>
+    </string-array>
+    <string name="rail_like_description">いいね</string>
+    <string name="rail_liked_description">いいね済み</string>
+    <string name="rail_fit_description">画面：元の比率</string>
+    <string name="rail_zoom_description">画面：自動拡大</string>
+    <string name="rail_status_playing">再生中</string>
+    <string name="rail_status_paused">一時停止</string>
+    <string name="rail_status_rotated">左に回転しました</string>
+    <string name="rail_like_pending">いいねを送信中…</string>
+    <string name="rail_like_unavailable">いいねを利用できません</string>
+    <string name="rail_like_unconfirmed">いいねを確認できませんでした</string>
+</resources>

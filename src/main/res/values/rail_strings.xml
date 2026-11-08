@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="service_name">Instagram Remote Assistant</string>
+    <string-array name="rail_descriptions">
+        <item>Previous reel</item>
+        <item>Next reel</item>
+        <item>Like</item>
+        <item>Save to Xunlei</item>
+        <item>Rotate left</item>
+        <item>Not interested</item>
+        <item>Picture: automatic zoom</item>
+    </string-array>
+    <string name="rail_like_description">Like</string>
+    <string name="rail_liked_description">Liked</string>
+    <string name="rail_fit_description">Picture: original proportions</string>
+    <string name="rail_zoom_description">Picture: automatic zoom</string>
+    <string name="rail_status_playing">Playing</string>
+    <string name="rail_status_paused">Paused</string>
+    <string name="rail_status_rotated">Rotated left</string>
+    <string name="rail_like_pending">Liking…</string>
+    <string name="rail_like_unavailable">Like unavailable</string>
+    <string name="rail_like_unconfirmed">Like not confirmed</string>
+</resources>

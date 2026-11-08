@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="msg_script_missing">Reelsのウェブ操作スクリプトがありません</string>
+    <string name="msg_player_missing">動画を開けません。アプリを再インストールしてください</string>
+    <string name="msg_https_only">Instagram公式のHTTPSページのみ対応しています</string>
+    <string name="msg_offline_test">オフライン時のエラー復旧確認：自動接続を一時停止しました</string>
+    <string name="msg_unofficial_blocked">公式ではないページをブロックしました</string>
+    <string name="msg_open_instagram">Instagramを開いています…</string>
+    <string name="msg_verify_official">Instagramで本人確認が必要です。公式ページでご自身で対応してください</string>
+    <string name="msg_open_video">動画を開いています…</string>
+    <string name="msg_login_official">Instagramの公式ページでログインしてください</string>
+    <string name="msg_wait_video">Instagramの動画を待っています…</string>
+    <string name="msg_page_network">Instagramのページを読み込めません。ネットワークを確認してからもう一度お試しください</string>
+    <string name="msg_page_unavailable">Instagramのページを現在読み込めません</string>
+    <string name="msg_login_required">動画の視聴や「いいね」を続けるにはInstagramへのログインが必要です</string>
+    <string name="dialog_login_title">Instagramへのログインが必要です</string>
+    <string name="dialog_login_body">Instagramでは、ログインしていない場合、連続して閲覧できる範囲が制限されます。おすすめ動画の視聴や「いいね」を続けるにはログインしてください。</string>
+    <string name="action_open_official">公式ページを開く</string>
+    <string name="action_home">ホーム画面に戻る</string>
+    <string name="msg_auth_paused">前回Instagramでログインまたは本人確認を求められたため、自動接続を引き続き一時停止しています。手動で続行した場合にのみ公式ページに接続します</string>
+    <string name="msg_connection_paused">Instagramへの接続を一時停止しました。しばらくしてから手動で再試行してください</string>
+    <string name="msg_rate_limited">Instagramへのアクセスが一時的に制限されたため、自動接続を一時停止しました。しばらくしてから手動で再試行してください</string>
+    <string name="dialog_auth_title">ログインまたは本人確認を一時停止しました</string>
+    <string name="dialog_page_title">ページを一時的に開けません</string>
+    <string name="dialog_cancel_note">キャンセルするとホーム画面に戻り、再接続は行いません。</string>
+    <string name="action_continue_official">公式ページへ進む</string>
+    <string name="action_retry">手動で再試行</string>
+    <string name="msg_source_missing">現在のページには再生URLがまだありません。再生ボタンで再試行するか、次の動画に切り替えてください</string>
+    <string name="msg_video_unavailable">この動画を開けません。リストに戻ってもう一度お試しください</string>
+    <string name="msg_video_page_network">動画ページを読み込めませんでした。ネットワークを確認してからもう一度お試しください</string>
+    <string name="msg_embed_unavailable">公開再生ページを現在利用できないため、自動試行を停止しました</string>
+    <string name="msg_video_timeout">動画を開くまでの時間が長すぎます。ウェブページに戻ってログインを確認するか、もう一度お試しください</string>
+    <string name="msg_playback_failed">動画を再生できませんでした。再生ボタンを押して再試行してください</string>
+    <string name="msg_retry_wait">たった今試行しました。しばらくしてから手動で再試行してください</string>
+    <string name="msg_single_video">これは単独の動画です。Reelsのリストに戻って動画を切り替えてください</string>
+    <string name="msg_switching">Reelを切り替えています…</string>
+    <string name="msg_switch_failed">現在切り替えられません。しばらくしてからもう一度お試しください</string>
+    <string name="msg_no_favorite_url">保存できる公開ReelのURLがまだ見つかっていません</string>
+    <string name="msg_favorite_missing">TVsonyのお気に入りへの入口が見つかりません</string>
+    <string name="msg_browsing">ウェブページを閲覧中です。サイドバーに戻ると再生を続けられます</string>
+    <string name="msg_favorite_saved">迅雷 / TVsonyのお気に入りに保存しました</string>
+    <string name="msg_not_interested_done">「興味なし」を送信しました</string>
+    <string name="msg_remote_hint">方向キーで移動 · 決定ボタンでクリック</string>
+</resources>

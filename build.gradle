@@ -1,0 +1,33 @@
+plugins {
+    id 'com.android.application' version '8.5.2'
+}
+
+android {
+    namespace 'com.gathin.instagramremote'
+    compileSdk 34
+    defaultConfig {
+        applicationId 'com.gathin.instagramremote'
+        minSdk 26
+        targetSdk 34
+        versionCode 3
+        versionName '2.11'
+        ndk {
+            abiFilters 'armeabi-v7a'
+        }
+    }
+    buildTypes {
+        debug {
+            applicationIdSuffix '.checks'
+            versionNameSuffix '-checks'
+        }
+        release {
+            signingConfig signingConfigs.debug
+        }
+    }
+}
+
+dependencies {
+    implementation 'androidx.core:core:1.7.0'
+    implementation 'androidx.webkit:webkit:1.10.0'
+    implementation 'org.videolan.android:libvlc-all:3.6.1'
+}

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="msg_script_missing">缺少 Reels 网页控制脚本</string>
+    <string name="msg_player_missing">无法打开视频，请重新安装应用</string>
+    <string name="msg_https_only">只支持 Instagram 官方 HTTPS 页面</string>
+    <string name="msg_offline_test">离线错误恢复检查：自动连接已暂停</string>
+    <string name="msg_unofficial_blocked">已阻止非官方页面</string>
+    <string name="msg_open_instagram">正在打开 Instagram…</string>
+    <string name="msg_verify_official">Instagram 需要验证，请在官方页面自行处理</string>
+    <string name="msg_open_video">正在打开视频…</string>
+    <string name="msg_login_official">请在 Instagram 官方页面登录</string>
+    <string name="msg_wait_video">正在等待 Instagram 视频…</string>
+    <string name="msg_page_network">Instagram 页面暂时无法加载，请检查网络后重试</string>
+    <string name="msg_page_unavailable">Instagram 页面暂时无法加载</string>
+    <string name="msg_login_required">Instagram 要求登录后继续观看或点赞</string>
+    <string name="dialog_login_title">需要登录 Instagram</string>
+    <string name="dialog_login_body">Instagram 限制了未登录时的连续浏览。登录后才能继续观看推荐视频或点赞。</string>
+    <string name="action_open_official">打开官方页面</string>
+    <string name="action_home">返回桌面</string>
+    <string name="msg_auth_paused">上次 Instagram 要求登录或验证，自动连接保持暂停。只有你手动继续才会连接官方页面</string>
+    <string name="msg_connection_paused">Instagram 连接已暂停，请稍后手动重试</string>
+    <string name="msg_rate_limited">Instagram 暂时限制访问，自动连接已暂停，请稍后手动重试</string>
+    <string name="dialog_auth_title">登录或验证已暂停</string>
+    <string name="dialog_page_title">页面暂时无法打开</string>
+    <string name="dialog_cancel_note">取消会返回桌面，不会重新连接。</string>
+    <string name="action_continue_official">继续官方页面</string>
+    <string name="action_retry">手动重试</string>
+    <string name="msg_source_missing">当前页面暂未提供播放地址。可按播放键重试，或切换下一条</string>
+    <string name="msg_video_unavailable">无法打开这个视频，请返回列表重试</string>
+    <string name="msg_video_page_network">视频页面加载失败，请检查网络后重试</string>
+    <string name="msg_embed_unavailable">公开播放页暂不可用，已停止自动尝试</string>
+    <string name="msg_video_timeout">打开视频超时，请返回网页检查登录或重试</string>
+    <string name="msg_playback_failed">视频播放失败，请按播放键重试</string>
+    <string name="msg_retry_wait">刚刚已尝试，请稍后再手动重试</string>
+    <string name="msg_single_video">这是一条单独视频，请返回 Reels 列表切换</string>
+    <string name="msg_switching">正在切换 Reel…</string>
+    <string name="msg_switch_failed">暂时无法切换，请稍后重试</string>
+    <string name="msg_no_favorite_url">尚未识别可收藏的公开 Reel 地址</string>
+    <string name="msg_favorite_missing">未找到 TVsony 收藏入口</string>
+    <string name="msg_browsing">网页浏览中，回到侧栏可继续播放</string>
+    <string name="msg_favorite_saved">已收藏到迅雷 / TVsony</string>
+    <string name="msg_not_interested_done">已提交不感兴趣</string>
+    <string name="msg_remote_hint">方向键移动 · 确认点击</string>
+</resources>
