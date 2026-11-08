@@ -9,10 +9,10 @@ android {
         applicationId 'com.gathin.instagramremote'
         minSdk 26
         targetSdk 34
-        versionCode 3
-        versionName '2.11'
+        versionCode 4
+        versionName '2.12'
         ndk {
-            abiFilters 'armeabi-v7a'
+            abiFilters 'armeabi-v7a', 'arm64-v8a'
         }
     }
     buildTypes {
@@ -21,7 +21,6 @@ android {
             versionNameSuffix '-checks'
         }
         release {
-            signingConfig signingConfigs.debug
         }
     }
 }

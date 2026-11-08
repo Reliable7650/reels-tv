@@ -3,7 +3,6 @@ package com.gathin.instagramremote;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
-import android.content.ComponentName;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -1107,10 +1106,8 @@ public final class ReelsTvActivity extends Activity {
         stopNative();
         showNativeMessage(getString(R.string.rail_status_paused));
         try {
-            startActivityForResult(new Intent(Intent.ACTION_SEND).setType("text/plain")
-                    .setComponent(new ComponentName("com.gathin.tvhome.visual", "com.gathin.tvhome.InboxShareActivity"))
-                    .putExtra(Intent.EXTRA_TEXT, currentURL)
-                    .putExtra("auto_return", true)
+            startActivityForResult(new Intent(this, CloudFavoriteActivity.class)
+                    .putExtra("reel_url", currentURL)
                     .putExtra("media_source", cachedSource)
                     .putExtra("media_user_agent", publicUserAgent), 7301);
         } catch (ActivityNotFoundException failure) {

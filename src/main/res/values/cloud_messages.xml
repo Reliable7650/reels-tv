@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="cloud_back">Back to player</string>
+    <string name="cloud_preparing">Preparing the video…</string>
+    <string name="cloud_uploading">Uploading to Xunlei / Reels TV. Please wait.</string>
+    <string name="cloud_page_error">The Xunlei page could not be opened. Go back and try again.</string>
+    <string name="cloud_login">Please sign in to your Xunlei account below.</string>
+    <string name="cloud_verifying">Checking the uploaded file in your cloud drive…</string>
+    <string name="cloud_saved">Saved to Xunlei / Reels TV.</string>
+    <string name="cloud_missing_folder">Create a folder named Reels TV in your Xunlei cloud drive, then try again.</string>
+    <string name="cloud_upload_failed">Upload failed. Go back and try again.</string>
+    <string name="cloud_timeout">Upload has not been confirmed. Check the transfer list below.</string>
+    <string name="cloud_download_failed">Could not prepare the video. Check the connection, available space, and video, then try again.</string>
+</resources>

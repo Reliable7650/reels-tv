@@ -36,9 +36,9 @@
     <string name="msg_switching">Switching Reel…</string>
     <string name="msg_switch_failed">Cannot switch right now. Please try again later</string>
     <string name="msg_no_favorite_url">No public Reel URL available to save has been identified yet</string>
-    <string name="msg_favorite_missing">TVsony favorites entry not found</string>
+    <string name="msg_favorite_missing">Unable to open Xunlei saving</string>
     <string name="msg_browsing">Browsing the web page. Return to the sidebar to continue playback</string>
-    <string name="msg_favorite_saved">Saved to Xunlei / TVsony favorites</string>
+    <string name="msg_favorite_saved">Saved to Xunlei / Reels TV</string>
     <string name="msg_not_interested_done">Submitted “Not interested”</string>
     <string name="msg_remote_hint">Use the directional buttons to move · Press Select to click</string>
 </resources>

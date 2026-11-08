@@ -1,4 +1,4 @@
-# Reels TV
+# Reels TV 2.12
 
 A remote-friendly Android TV interface for watching Instagram Reels. Reels TV opens Instagram's official website in a WebView and plays available video in a TV-oriented player with a simple icon-based control rail.
 
@@ -18,16 +18,20 @@ The application does not guarantee that a particular video, control, or account 
 ## Device requirements
 
 - Android 8.0 (API 26) or later, with an Android TV-compatible remote and working WebView.
-- **32-bit ARM (`armeabi-v7a`) support.** This build has been tested on one Sony Android TV 10 device; compatibility with other devices and 64-bit-only devices has not been established.
-- Network access to Instagram and its media servers. Sign in on the official page when prompted. The app has its own WebView session; it does not import the session from the official Instagram app.
+- An ARM Android device supporting `armeabi-v7a` or `arm64-v8a`. Compatibility varies by device; 2.12 has not been verified on every device or architecture.
+- Network access to Instagram and its media servers; Xunlei access is also needed for cloud saving. Sign in on the official pages when prompted. The app has its own WebView session and does not import the session from the official Instagram app.
 
 The optional Instagram Remote Assistant accessibility service is for controlling the separate official Instagram app. Reels TV itself does not require enabling it. If enabled, Android grants the service access to window information, directional keys and gesture simulation; the service filters keys only while the official Instagram app is active and the keyboard is closed.
 
 ### Saving to Xunlei
 
-The blue cloud-and-lightning button is an integration with a separate, customized CleanYourTV inbox application (`com.gathin.tvhome.visual`). **That companion application is not included in this repository.** Without the compatible companion, the button reports that the save entry is unavailable. It sends the current Reel URL, media source URL and media user agent to that companion; its actual saving behavior and destination depend on the companion's configuration. This project is not a standalone Xunlei uploader.
+The cloud button opens the official Xunlei website inside Reels TV; no companion app is required. Sign in to your own Xunlei account in that window and create a folder named exactly `Reels TV` at the root of your cloud drive before saving. If the folder is missing, create it yourself and try again. The official website may display Chinese regardless of the app language.
 
-## Build and install
+The app prepares the current Reel as a temporary video, submits it through Xunlei's upload page, and reports success only after the website indicates that the upload finished and the refreshed folder shows the file. It does not rely on an old local saved marker. Canceling or an unconfirmed upload is not reported as success. An actual upload has not yet been verified for this release; changes to Xunlei's website, login, file list, or upload interface may prevent the flow from working.
+
+The save option requires a directly downloadable, playable video from Instagram's supported media hosts. Some Reels or accounts may not provide one. Downloads are limited to 512 MiB and require sufficient free space. Account access, network availability, website changes, and Xunlei's own restrictions can also prevent saving. Use this feature only for content you are allowed to save.
+
+## Build, sign, and install
 
 You need JDK 17, Android SDK Platform 34 and Build Tools 34.0.0. Set `ANDROID_HOME` to your Android SDK directory, or use Android Studio's local SDK configuration. The included Gradle wrapper downloads Gradle 8.9 with checksum verification on first use; Gradle also downloads the Android plugin and declared dependencies.
 
@@ -35,21 +39,27 @@ You need JDK 17, Android SDK Platform 34 and Build Tools 34.0.0. Set `ANDROID_HO
 ./gradlew assembleRelease lintRelease
 ```
 
-On Windows, use `gradlew.bat` instead. The APK is generated at:
+On Windows, use `gradlew.bat` instead. The release build is **unsigned** and cannot be installed as-is:
 
 ```text
-build/outputs/apk/release/InstagramRemote-release.apk
+build/outputs/apk/release/InstagramRemote-release-unsigned.apk
 ```
 
-The existing release configuration signs the APK with the **local Android debug key** for development convenience. Each computer may have a different key. Android only permits an in-place update when the package name and signing certificate match the installed app. Do not uninstall an existing installation just to work around a signature mismatch: doing so removes its local data and WebView session. A public distribution should use an appropriately managed signing key and satisfy the applicable third-party license requirements.
-
-To install a compatible build on a connected device:
+To create the expected distribution file, align the unsigned APK and sign it with your own securely managed release key. Replace the keystore path and alias below; `zipalign` and `apksigner` are in the Android SDK's Build Tools directory. Keep the keystore and its passwords private.
 
 ```sh
-adb install -r build/outputs/apk/release/InstagramRemote-release.apk
+zipalign -p -f 4 build/outputs/apk/release/InstagramRemote-release-unsigned.apk /tmp/Reels-TV-2.12-aligned.apk
+apksigner sign --ks /path/to/release-keystore --ks-key-alias YOUR_KEY_ALIAS --out Reels-TV-2.12.apk /tmp/Reels-TV-2.12-aligned.apk
+apksigner verify --verbose --print-certs Reels-TV-2.12.apk
 ```
 
-This repository distributes source code, not a pre-signed APK.
+Before installing a distributed APK, verify its signature with `apksigner verify --verbose --print-certs Reels-TV-2.12.apk` and compare the displayed SHA-256 certificate fingerprint with the publisher's fingerprint obtained through a trusted, independent channel. A successful verification alone does not establish who signed the APK. No publisher fingerprint is specified in this repository.
+
+```sh
+adb install -r Reels-TV-2.12.apk
+```
+
+Android permits an in-place update only when the package name and signing certificate are compatible with the installed app. A build signed with your own key will not update an installation signed by someone else. Uninstalling an existing installation removes its local data and WebView session. The expected signed filename does not imply that a signed APK is included or has been published.
 
 ## Remote controls
 
@@ -69,16 +79,18 @@ Buttons may be unavailable while a page or video is loading or when Instagram do
 The JavaScript tests use Node.js 18 or newer and do not contact Instagram:
 
 ```sh
-node --test tests/*.test.cjs
+node --test tests/*.test.cjs tests/*.test.mjs
 ```
 
-The `debug` build uses the separate `com.gathin.instagramremote.checks` application ID and removes network permissions. Its device-side safety checks also require locally supplied test videos in the test app's cache. Those video fixtures are **not included** in this repository, so the complete device-side playback suite cannot be reproduced from this repository alone. The JavaScript tests and local device checks do not prove how the live Instagram website or an individual account will behave.
+The `debug` build uses the separate `com.gathin.instagramremote.checks` application ID and removes network permissions. Its device-side safety checks also require locally supplied test videos in the test app's cache. Those video fixtures are **not included** in this repository, so the complete device-side playback suite cannot be reproduced from this repository alone. The JavaScript tests and local device checks do not prove how the live Instagram or Xunlei websites, an upload, or an individual account will behave.
 
 ## Privacy and data
 
-The app connects to Instagram and Facebook media hosts for the official page and playback. Its WebView stores its own session and cookies on the device; the separate official Instagram app does not share them automatically. The app stores per-video rotation and zoom preferences locally. Android backup is disabled for this application. No account credentials, cookies, personal viewing history, private network settings, or signing keys are included in this repository.
+The app connects to Instagram and Facebook media hosts for the official page and playback. When you use cloud saving, it downloads the current video from an Instagram media host into the app's private cache and uploads it to Xunlei through the official website. The temporary file is removed when the flow finishes or is closed; an interrupted app process may leave cached data until Android clears it. Xunlei receives the uploaded video and handles it under its own terms and privacy policy.
 
-If you enable the optional accessibility service or use the companion save integration, review the permissions and data flow described above. Content availability depends on the service and the account's access.
+The app's WebView stores its own website sessions and cookies on the device. Sign in yourself on the official Instagram and Xunlei pages; the app does not import login data from another app or read or copy your credentials or cookies for the cloud save flow. The app stores per-video rotation and zoom preferences locally. Android backup is disabled. No account credentials, cookies, personal viewing history, private network settings, or signing keys are included in this repository.
+
+If you enable the optional accessibility service, review the permissions and behavior described above. Content availability depends on the service and the account's access.
 
 ## License and attribution
 

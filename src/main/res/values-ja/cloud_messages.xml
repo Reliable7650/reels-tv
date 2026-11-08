@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="cloud_back">プレーヤーに戻る</string>
+    <string name="cloud_preparing">動画を準備しています…</string>
+    <string name="cloud_uploading">Xunlei / Reels TV にアップロードしています。お待ちください。</string>
+    <string name="cloud_page_error">Xunlei のページを開けませんでした。戻ってもう一度お試しください。</string>
+    <string name="cloud_login">下の画面でご自身の Xunlei アカウントにログインしてください。</string>
+    <string name="cloud_verifying">クラウド内のアップロード済みファイルを確認しています…</string>
+    <string name="cloud_saved">Xunlei / Reels TV に保存しました。</string>
+    <string name="cloud_missing_folder">Xunlei のクラウドに Reels TV というフォルダーを作成してから、もう一度お試しください。</string>
+    <string name="cloud_upload_failed">アップロードに失敗しました。戻ってもう一度お試しください。</string>
+    <string name="cloud_timeout">アップロードの完了を確認できません。下の転送一覧をご確認ください。</string>
+    <string name="cloud_download_failed">動画を準備できませんでした。接続、空き容量、動画を確認してからもう一度お試しください。</string>
+</resources>

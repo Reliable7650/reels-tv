@@ -36,9 +36,9 @@
     <string name="msg_switching">Reelを切り替えています…</string>
     <string name="msg_switch_failed">現在切り替えられません。しばらくしてからもう一度お試しください</string>
     <string name="msg_no_favorite_url">保存できる公開ReelのURLがまだ見つかっていません</string>
-    <string name="msg_favorite_missing">TVsonyのお気に入りへの入口が見つかりません</string>
+    <string name="msg_favorite_missing">迅雷への保存画面を開けません</string>
     <string name="msg_browsing">ウェブページを閲覧中です。サイドバーに戻ると再生を続けられます</string>
-    <string name="msg_favorite_saved">迅雷 / TVsonyのお気に入りに保存しました</string>
+    <string name="msg_favorite_saved">迅雷 / Reels TV に保存しました</string>
     <string name="msg_not_interested_done">「興味なし」を送信しました</string>
     <string name="msg_remote_hint">方向キーで移動 · 決定ボタンでクリック</string>
 </resources>
