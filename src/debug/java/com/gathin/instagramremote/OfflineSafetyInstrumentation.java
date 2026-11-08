@@ -210,7 +210,7 @@ public final class OfflineSafetyInstrumentation extends Instrumentation {
                 Button rotate = ((Button[]) get("buttons"))[4];
                 check("rotation_initial_zero", playback.displayInfo().contains(" rotation=0 ")
                         && playback.view.getChildAt(0).getRotation() == 0);
-                check("rotation_button_available", "向左旋转".contentEquals(rotate.getText()) && rotate.isEnabled());
+                check("rotation_button_available", activity.getResources().getStringArray(R.array.rail_descriptions)[4].contentEquals(rotate.getText()) && rotate.isEnabled());
                 for (int degrees : new int[] {270, 180, 90, 0}) {
                     rotate.performClick();
                     check("rotation_button_degrees_" + degrees,
@@ -307,9 +307,9 @@ public final class OfflineSafetyInstrumentation extends Instrumentation {
                 call("updateFavorite");
                 Button[] buttons = (Button[]) get("buttons");
                 check("actions_seven_buttons_keep_indexes", buttons.length == 7
-                        && "收藏到迅雷".contentEquals(buttons[3].getText())
-                        && "向左旋转".contentEquals(buttons[4].getText())
-                        && "不感兴趣".contentEquals(buttons[5].getText()));
+                        && activity.getResources().getStringArray(R.array.rail_descriptions)[3].contentEquals(buttons[3].getText())
+                        && activity.getResources().getStringArray(R.array.rail_descriptions)[4].contentEquals(buttons[4].getText())
+                        && activity.getString(R.string.rail_not_interested).contentEquals(buttons[5].getText()));
                 check("actions_sidebar_scrolls", buttons[5].getParent().getParent() instanceof android.widget.ScrollView);
                 check("actions_unsupported_preference_hidden", buttons[5].getVisibility() == View.GONE);
                 check("actions_ready_buttons_enabled url=" + ((WebView) get("web")).getUrl()
@@ -317,7 +317,7 @@ public final class OfflineSafetyInstrumentation extends Instrumentation {
                         + " destroyed=" + get("destroyed"), buttons[2].isEnabled() && buttons[5].isEnabled());
                 buttons[2].performClick();
                 check("actions_like_pending_visible", !buttons[2].isEnabled()
-                        && buttons[2].getText().toString().contains("处理中")
+                        && activity.getString(R.string.rail_like_pending).contentEquals(buttons[2].getText())
                         && ((String[]) get("actionRequests"))[0] != null);
                 buttons[5].performClick();
                 check("actions_like_blocks_other_action", !buttons[5].isEnabled()
@@ -347,19 +347,19 @@ public final class OfflineSafetyInstrumentation extends Instrumentation {
             waitForIdleSync();
             runOnMainSync(() -> check("actions_pending_ignores_state_and_wrong_callback",
                     !((Button[]) get("buttons"))[2].isEnabled()
-                            && ((Button[]) get("buttons"))[2].getText().toString().contains("处理中")));
+                            && activity.getString(R.string.rail_like_pending).contentEquals(((Button[]) get("buttons"))[2].getText())));
             bridge.actionResult("like", reel, "liked", first);
             waitForIdleSync();
             runOnMainSync(() -> {
                 Button like = ((Button[]) get("buttons"))[2];
-                check("actions_liked_visible_and_enabled", like.isEnabled() && "已点赞".contentEquals(like.getText())
+                check("actions_liked_visible_and_enabled", like.isEnabled() && activity.getString(R.string.rail_liked_description).contentEquals(like.getText())
                         && like.getCurrentTextColor() == 0xFF81F0A5);
             });
             bridge.state(reel, false, true, false);
             waitForIdleSync();
             runOnMainSync(() -> {
                 Button like = ((Button[]) get("buttons"))[2];
-                check("actions_later_official_false_clears_like", "点赞".contentEquals(like.getText())
+                check("actions_later_official_false_clears_like", activity.getString(R.string.rail_like_description).contentEquals(like.getText())
                         && like.getCurrentTextColor() == 0xFFFFFFFF && !(boolean) get("likeStateLocked"));
                 like.performClick();
                 check("actions_new_request_is_unique", Long.parseLong(((String[]) get("actionRequests"))[0])
@@ -370,11 +370,11 @@ public final class OfflineSafetyInstrumentation extends Instrumentation {
             waitForIdleSync();
             runOnMainSync(() -> {
                 Button[] buttons = (Button[]) get("buttons");
-                check("actions_unliked_visible", "已取消点赞".contentEquals(buttons[2].getText())
+                check("actions_unliked_visible", activity.getString(R.string.rail_like_description).contentEquals(buttons[2].getText())
                         && buttons[2].getCurrentTextColor() == 0xFFFFFFFF);
                 buttons[5].performClick();
                 check("actions_not_interested_pending_visible", !buttons[5].isEnabled()
-                        && buttons[5].getText().toString().contains("处理中"));
+                        && activity.getString(R.string.rail_not_interested_pending).contentEquals(buttons[5].getText()));
                 buttons[2].performClick();
                 check("actions_not_interested_blocks_other_action_and_navigation", !buttons[2].isEnabled()
                         && !buttons[0].isEnabled() && !buttons[1].isEnabled()
@@ -389,7 +389,7 @@ public final class OfflineSafetyInstrumentation extends Instrumentation {
             runOnMainSync(() -> {
                 Button[] buttons = (Button[]) get("buttons");
                 check("actions_submitted_visible", buttons[5].isEnabled()
-                        && buttons[5].getText().toString().contains("已提交")
+                        && activity.getString(R.string.rail_not_interested_done).contentEquals(buttons[5].getText())
                         && buttons[0].isEnabled() && buttons[1].isEnabled());
                 buttons[5].performClick();
             });
@@ -405,18 +405,18 @@ public final class OfflineSafetyInstrumentation extends Instrumentation {
             waitForIdleSync();
             runOnMainSync(() -> check("actions_spa_removal_requires_submitted_and_matching_request",
                     removed.equals(((String[]) get("actionRequests"))[1])
-                            && ((Button[]) get("buttons"))[5].getText().toString().contains("处理中")));
+                            && activity.getString(R.string.rail_not_interested_pending).contentEquals(((Button[]) get("buttons"))[5].getText())));
             bridge.actionResult("notInterested", reel, "submitted", removed);
             waitForIdleSync();
             runOnMainSync(() -> check("actions_spa_removal_accepts_old_reel_submitted",
                     ((String[]) get("actionRequests"))[1] == null
-                            && ((Button[]) get("buttons"))[5].getText().toString().contains("已提交")));
+                            && activity.getString(R.string.rail_not_interested_done).contentEquals(((Button[]) get("buttons"))[5].getText())));
             bridge.state(other, false, true, false);
             waitForIdleSync();
             runOnMainSync(() -> {
                 Button[] buttons = (Button[]) get("buttons");
                 check("actions_spa_new_state_resets_feedback", other.equals(get("currentURL"))
-                        && "不感兴趣".contentEquals(buttons[5].getText()));
+                        && activity.getString(R.string.rail_not_interested).contentEquals(buttons[5].getText()));
                 buttons[5].performClick();
             });
             String skipped = actionRequest(1);
@@ -434,7 +434,7 @@ public final class OfflineSafetyInstrumentation extends Instrumentation {
             bridge.actionResult("notInterested", reel, "submitted", removed);
             waitForIdleSync();
             runOnMainSync(() -> check("actions_clear_rejects_old_submitted",
-                    !((Button[]) get("buttons"))[5].getText().toString().contains("已提交")));
+                    !activity.getString(R.string.rail_not_interested_done).contentEquals(((Button[]) get("buttons"))[5].getText())));
             updateLocalActionRoute(navigation[0], "https://www.instagram.com/reels/");
             bridge.state(reel, false, true, false);
             waitForIdleSync();
@@ -444,7 +444,7 @@ public final class OfflineSafetyInstrumentation extends Instrumentation {
                 long serial = (long) get("nextActionRequest");
                 ((Runnable[]) get("actionTimeouts"))[0].run();
                 check("actions_timeout_unlocks_without_retry", buttons[2].isEnabled()
-                        && buttons[2].getText().toString().contains("未能确认")
+                        && activity.getString(R.string.rail_like_unconfirmed).contentEquals(buttons[2].getText())
                         && (long) get("nextActionRequest") == serial && ((String[]) get("actionRequests"))[0] == null);
                 buttons[2].performClick();
                 check("actions_manual_attempt_after_timeout", ((String[]) get("actionRequests"))[0] != null);
@@ -465,7 +465,7 @@ public final class OfflineSafetyInstrumentation extends Instrumentation {
             bridge.controls("[\"Like\",\"More options\"]", true, true);
             waitForIdleSync();
             runOnMainSync(() -> {
-                check("actions_unavailable_explicit", ((Button[]) get("buttons"))[2].getText().toString().contains("当前不可用"));
+                check("actions_unavailable_explicit", activity.getString(R.string.rail_like_unavailable).contentEquals(((Button[]) get("buttons"))[2].getText()));
                 for (String blocked : new String[] {"accessBlocked", "awaitingLogin", "authenticationPage", "leaving"}) {
                     set(blocked, true);
                     call("updateFavorite");
@@ -497,7 +497,7 @@ public final class OfflineSafetyInstrumentation extends Instrumentation {
                         && !(boolean) get("menuControlAvailable") && "[]".equals(get("controlLabels")));
                 set("foreground", true);
                 call("updateFavorite");
-                check("actions_return_does_not_accept_old_result", !"已点赞".contentEquals(((Button[]) get("buttons"))[2].getText()));
+                check("actions_return_does_not_accept_old_result", !activity.getString(R.string.rail_liked_description).contentEquals(((Button[]) get("buttons"))[2].getText()));
                 ((Button[]) get("buttons"))[5].performClick();
                 check("actions_verification_test_starts_pending", ((String[]) get("actionRequests"))[1] != null);
                 call("showLogin");
@@ -543,7 +543,7 @@ public final class OfflineSafetyInstrumentation extends Instrumentation {
                 Button[] buttons = (Button[]) get("buttons");
                 check("aspect_default_auto_visible", playback.isAutoZoom() && buttons[6].isEnabled()
                         && buttons[6].getVisibility() == View.VISIBLE
-                        && "画面：自动放大".contentEquals(buttons[6].getText()));
+                        && activity.getString(R.string.rail_zoom_description).contentEquals(buttons[6].getText()));
                 set("selectedButton", buttons[4]);
                 buttons[4].requestFocus();
                 for (int action : new int[] {KeyEvent.ACTION_DOWN, KeyEvent.ACTION_UP}) {
@@ -560,7 +560,7 @@ public final class OfflineSafetyInstrumentation extends Instrumentation {
                 buttons[6].performClick();
                 check("aspect_original_mode_saved", !playback.isAutoZoom()
                         && !activity.getPreferences(0).getBoolean("auto_zoom_OfflineAspectA", true)
-                        && "画面：原始比例".contentEquals(buttons[6].getText()));
+                        && activity.getString(R.string.rail_fit_description).contentEquals(buttons[6].getText()));
             });
             SystemClock.sleep(100);
             runOnMainSync(() -> {
@@ -607,14 +607,14 @@ public final class OfflineSafetyInstrumentation extends Instrumentation {
             });
             waitForFirstFrame("aspect_restored_first_frame");
             runOnMainSync(() -> {
-                check("aspect_restored_button_matches", "画面：原始比例".contentEquals(((Button[]) get("buttons"))[6].getText()));
+                check("aspect_restored_button_matches", activity.getString(R.string.rail_fit_description).contentEquals(((Button[]) get("buttons"))[6].getText()));
                 startLocalVideo(fixture, other);
                 check("aspect_other_reel_defaults_auto", ((ReelsPlayback) get("nativeVideo")).isAutoZoom()
                         && !activity.getPreferences(0).contains("auto_zoom_OfflineAspectB"));
             });
             waitForFirstFrame("aspect_other_first_frame");
             runOnMainSync(() -> {
-                check("aspect_other_button_matches", "画面：自动放大".contentEquals(((Button[]) get("buttons"))[6].getText()));
+                check("aspect_other_button_matches", activity.getString(R.string.rail_zoom_description).contentEquals(((Button[]) get("buttons"))[6].getText()));
                 for (String blocked : new String[] {"accessBlocked", "awaitingLogin"}) {
                     set(blocked, true);
                     call("updateFavorite");
@@ -731,7 +731,7 @@ public final class OfflineSafetyInstrumentation extends Instrumentation {
             runOnMainSync(() -> {
                 check("favorite_return_resumes_playback", ((ReelsPlayback) get("nativeVideo")).isPlaying());
                 check("favorite_return_keeps_original_ratio", !((ReelsPlayback) get("nativeVideo")).isAutoZoom()
-                        && "画面：原始比例".contentEquals(((Button[]) get("buttons"))[6].getText()));
+                        && activity.getString(R.string.rail_fit_description).contentEquals(((Button[]) get("buttons"))[6].getText()));
             });
         } finally {
             runOnMainSync(() -> activity.finish());

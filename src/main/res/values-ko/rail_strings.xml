@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="service_name">Instagram 리모컨 도우미</string>
+    <string name="service_description">Instagram에서 방향키로 포인터를 이동하고 확인 버튼으로 클릭합니다. 키보드와 다른 앱의 키, 음량 및 채널 버튼은 그대로 작동합니다. 입력 내용은 읽거나 저장하지 않습니다.</string>
+    <string-array name="rail_descriptions">
+        <item>이전 릴스</item>
+        <item>다음 릴스</item>
+        <item>좋아요</item>
+        <item>Xunlei에 저장</item>
+        <item>왼쪽으로 회전</item>
+        <item>관심 없음</item>
+        <item>화면: 자동 확대</item>
+    </string-array>
+    <string name="rail_like_description">좋아요</string>
+    <string name="rail_liked_description">좋아요 표시됨</string>
+    <string name="rail_fit_description">화면: 원래 비율</string>
+    <string name="rail_zoom_description">화면: 자동 확대</string>
+    <string name="rail_status_playing">재생 중</string>
+    <string name="rail_status_paused">일시정지됨</string>
+    <string name="rail_status_rotated">왼쪽으로 회전함</string>
+    <string name="rail_like_pending">좋아요 처리 중…</string>
+    <string name="rail_like_unavailable">좋아요를 사용할 수 없음</string>
+    <string name="rail_like_unconfirmed">좋아요를 확인할 수 없음</string>
+    <string name="rail_not_interested">관심 없음</string>
+    <string name="rail_not_interested_pending">관심 없음: 전송 중…</string>
+    <string name="rail_not_interested_done">관심 없음: 전송됨</string>
+    <string name="rail_not_interested_unavailable">관심 없음: 사용할 수 없음</string>
+    <string name="rail_not_interested_unconfirmed">관심 없음: 확인할 수 없음</string>
+</resources>

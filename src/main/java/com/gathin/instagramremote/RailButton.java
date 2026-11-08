@@ -24,7 +24,7 @@ final class RailButton extends Button {
 
     @Override protected void onDraw(Canvas canvas) {
         boolean liked = index == 2 && getCurrentTextColor() == 0xFF81F0A5;
-        boolean original = index == 6 && getText().toString().contains("原始比例");
+        boolean original = index == 6 && getText().toString().equals(getContext().getString(R.string.rail_fit_description));
         Drawable current = liked || original ? alternative : icon;
         if (index != 3) current.setTint(liked ? 0xFFFF6681 : 0xFFF7F9FC);
         int size = Math.round(32 * getResources().getDisplayMetrics().density);

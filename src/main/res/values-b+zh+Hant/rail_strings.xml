@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="service_name">Instagram 遙控助手</string>
+    <string name="service_description">僅在 Instagram 內使用方向鍵移動指標，確認鍵點擊。鍵盤和其他應用程式不篩選按鍵；音量鍵、頻道鍵保留原有用途。不讀取或儲存輸入內容。</string>
+    <string-array name="rail_descriptions">
+        <item>上一則</item>
+        <item>下一則</item>
+        <item>讚</item>
+        <item>儲存至迅雷</item>
+        <item>向左旋轉</item>
+        <item>不感興趣</item>
+        <item>畫面：自動放大</item>
+    </string-array>
+    <string name="rail_like_description">讚</string>
+    <string name="rail_liked_description">已按讚</string>
+    <string name="rail_fit_description">畫面：原始比例</string>
+    <string name="rail_zoom_description">畫面：自動放大</string>
+    <string name="rail_status_playing">正在播放</string>
+    <string name="rail_status_paused">影片已暫停</string>
+    <string name="rail_status_rotated">畫面已向左旋轉</string>
+    <string name="rail_like_pending">正在按讚…</string>
+    <string name="rail_like_unavailable">暫時無法按讚</string>
+    <string name="rail_like_unconfirmed">無法確認按讚</string>
+    <string name="rail_not_interested">不感興趣</string>
+    <string name="rail_not_interested_pending">不感興趣：提交中…</string>
+    <string name="rail_not_interested_done">不感興趣：已提交</string>
+    <string name="rail_not_interested_unavailable">不感興趣：暫時無法使用</string>
+    <string name="rail_not_interested_unconfirmed">不感興趣：無法確認</string>
+</resources>

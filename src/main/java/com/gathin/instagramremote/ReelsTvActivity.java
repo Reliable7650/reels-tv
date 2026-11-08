@@ -161,7 +161,7 @@ public final class ReelsTvActivity extends Activity {
         sidebar.setGravity(Gravity.CENTER);
         sidebar.setPadding(dp(12), dp(12), dp(12), dp(12));
         sidebarScroll.addView(sidebar, new ScrollView.LayoutParams(-1, -2));
-        String[] labels = {"上一条", "下一条", "点赞", "收藏到迅雷", "向左旋转", "不感兴趣", "画面：自动放大"};
+        String[] labels = getResources().getStringArray(R.array.rail_descriptions);
         for (int i = 0; i < buttons.length; i++) {
             Button button = new RailButton(this, i);
             button.setId(View.generateViewId());
@@ -506,7 +506,7 @@ public final class ReelsTvActivity extends Activity {
                     shouldPlay = true;
                     web.evaluateJavascript("if(window.TVReels)window.TVReels.state();", null);
                 }
-                if (!likeStateLocked) showLikeState(liked ? "已点赞" : "点赞", liked);
+                if (!likeStateLocked) showLikeState(liked ? R.string.rail_liked_description : R.string.rail_like_description, liked);
                 updateFavorite();
                 resumeNative();
             });
@@ -932,7 +932,7 @@ public final class ReelsTvActivity extends Activity {
         buttons[4].setAlpha(available && pictureReady ? 1f : .45f);
         buttons[6].setEnabled(available && pictureReady);
         buttons[6].setAlpha(available && pictureReady ? 1f : .45f);
-        buttons[6].setText(nativeVideo != null && !nativeVideo.isAutoZoom() ? "画面：原始比例" : "画面：自动放大");
+        buttons[6].setText(nativeVideo != null && !nativeVideo.isAutoZoom() ? R.string.rail_fit_description : R.string.rail_zoom_description);
         buttons[6].setContentDescription(getString(nativeVideo != null && !nativeVideo.isAutoZoom()
                 ? R.string.rail_fit_description : R.string.rail_zoom_description));
         updateActionButtons();
@@ -972,16 +972,11 @@ public final class ReelsTvActivity extends Activity {
         }
     }
 
-    private void showLikeState(String text, boolean liked) {
-        buttons[2].setText(text);
+    private void showLikeState(int description, boolean liked) {
+        buttons[2].setText(description);
         buttons[2].setTextColor(liked ? 0xFF81F0A5 : 0xFFFFFFFF);
-        int description = liked ? R.string.rail_liked_description
-                : text.contains("处理中") ? R.string.rail_like_pending
-                : text.contains("不可用") ? R.string.rail_like_unavailable
-                : text.contains("未能确认") ? R.string.rail_like_unconfirmed
-                : R.string.rail_like_description;
         buttons[2].setContentDescription(getString(description));
-        if (status != null && !"点赞".equals(text)) status.setText(description);
+        if (status != null && description != R.string.rail_like_description) status.setText(description);
     }
 
     private void cancelActions() {
@@ -996,8 +991,8 @@ public final class ReelsTvActivity extends Activity {
         likeControlAvailable = false;
         menuControlAvailable = false;
         controlLabels = "[]";
-        showLikeState("点赞", false);
-        buttons[5].setText("不感兴趣");
+        showLikeState(R.string.rail_like_description, false);
+        buttons[5].setText(R.string.rail_not_interested);
         if (web != null && !destroyed) web.evaluateJavascript(
                 "if(window.TVReels)window.TVReels.cancelActions();", null);
         updateActionButtons();
@@ -1018,8 +1013,8 @@ public final class ReelsTvActivity extends Activity {
         actionReels[index] = reel;
         if (index == 0) {
             likeStateLocked = true;
-            showLikeState("点赞处理中…", false);
-        } else buttons[5].setText("不感兴趣\n处理中…");
+            showLikeState(R.string.rail_like_pending, false);
+        } else buttons[5].setText(R.string.rail_not_interested_pending);
         updateFavorite();
         actionTimeouts[index] = () -> {
             if (pendingActionMatches(index, reel, requestId, false)) finishAction(index, "unconfirmed");
@@ -1040,16 +1035,17 @@ public final class ReelsTvActivity extends Activity {
         actionRequests[index] = null;
         actionReels[index] = null;
         if (index == 0) {
-            String text = "liked".equals(outcome) ? "已点赞" : "unliked".equals(outcome) ? "已取消点赞"
-                    : "unavailable".equals(outcome) ? "点赞\n当前不可用" : "点赞\n未能确认";
-            showLikeState(text, "liked".equals(outcome));
+            int description = "liked".equals(outcome) ? R.string.rail_liked_description
+                    : "unliked".equals(outcome) ? R.string.rail_like_description
+                    : "unavailable".equals(outcome) ? R.string.rail_like_unavailable : R.string.rail_like_unconfirmed;
+            showLikeState(description, "liked".equals(outcome));
             if ("liked".equals(outcome) || "unliked".equals(outcome)) {
                 likeStateLocked = false;
                 Toast.makeText(this, buttons[2].getContentDescription(), Toast.LENGTH_SHORT).show();
             }
         } else {
-            buttons[5].setText("submitted".equals(outcome) ? "不感兴趣\n已提交"
-                    : "unavailable".equals(outcome) ? "不感兴趣\n当前不可用" : "不感兴趣\n未能确认");
+            buttons[5].setText("submitted".equals(outcome) ? R.string.rail_not_interested_done
+                    : "unavailable".equals(outcome) ? R.string.rail_not_interested_unavailable : R.string.rail_not_interested_unconfirmed);
             if ("submitted".equals(outcome)) Toast.makeText(this, getString(R.string.msg_not_interested_done), Toast.LENGTH_SHORT).show();
         }
         updateFavorite();

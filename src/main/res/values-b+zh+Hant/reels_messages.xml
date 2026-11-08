@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="msg_script_missing">缺少 Reels 網頁控制指令碼</string>
+    <string name="msg_player_missing">無法開啟影片，請重新安裝應用程式</string>
+    <string name="msg_https_only">僅支援 Instagram 官方 HTTPS 頁面</string>
+    <string name="msg_offline_test">離線錯誤復原檢查：自動連線已暫停</string>
+    <string name="msg_unofficial_blocked">已封鎖非官方頁面</string>
+    <string name="msg_open_instagram">正在開啟 Instagram…</string>
+    <string name="msg_verify_official">Instagram 需要驗證，請在官方頁面自行處理</string>
+    <string name="msg_open_video">正在開啟影片…</string>
+    <string name="msg_login_official">請在 Instagram 官方頁面登入</string>
+    <string name="msg_wait_video">正在等待 Instagram 影片…</string>
+    <string name="msg_page_network">Instagram 頁面暫時無法載入，請檢查網路後重試</string>
+    <string name="msg_page_unavailable">Instagram 頁面暫時無法載入</string>
+    <string name="msg_login_required">Instagram 要求登入後才能繼續觀看或按讚</string>
+    <string name="dialog_login_title">需要登入 Instagram</string>
+    <string name="dialog_login_body">Instagram 限制未登入時的連續瀏覽。登入後才能繼續觀看推薦影片或按讚。</string>
+    <string name="action_open_official">開啟官方頁面</string>
+    <string name="action_home">返回主畫面</string>
+    <string name="msg_auth_paused">上次 Instagram 要求登入或驗證，自動連線維持暫停。只有手動繼續時才會連線至官方頁面</string>
+    <string name="msg_connection_paused">Instagram 連線已暫停，請稍後手動重試</string>
+    <string name="msg_rate_limited">Instagram 暫時限制存取，自動連線已暫停，請稍後手動重試</string>
+    <string name="dialog_auth_title">登入或驗證已暫停</string>
+    <string name="dialog_page_title">頁面暫時無法開啟</string>
+    <string name="dialog_cancel_note">取消會返回主畫面，不會重新連線。</string>
+    <string name="action_continue_official">繼續前往官方頁面</string>
+    <string name="action_retry">手動重試</string>
+    <string name="msg_source_missing">目前頁面尚未提供播放網址。可按播放鍵重試，或切換至下一則</string>
+    <string name="msg_video_unavailable">無法開啟這個影片，請返回清單重試</string>
+    <string name="msg_video_page_network">影片頁面載入失敗，請檢查網路後重試</string>
+    <string name="msg_embed_unavailable">公開播放頁面暫時無法使用，已停止自動嘗試</string>
+    <string name="msg_video_timeout">開啟影片逾時，請返回網頁檢查登入狀態或重試</string>
+    <string name="msg_playback_failed">影片播放失敗，請按播放鍵重試</string>
+    <string name="msg_retry_wait">剛才已嘗試，請稍後再手動重試</string>
+    <string name="msg_single_video">這是單一影片，請返回 Reels 清單切換</string>
+    <string name="msg_switching">正在切換 Reel…</string>
+    <string name="msg_switch_failed">暫時無法切換，請稍後重試</string>
+    <string name="msg_no_favorite_url">尚未找到可儲存的公開 Reel 網址</string>
+    <string name="msg_favorite_missing">無法開啟迅雷儲存功能</string>
+    <string name="msg_browsing">正在瀏覽網頁，返回側邊欄即可繼續播放</string>
+    <string name="msg_favorite_saved">已儲存至迅雷 / Reels TV</string>
+    <string name="msg_not_interested_done">已提交不感興趣</string>
+    <string name="msg_remote_hint">方向鍵移動 · 確認鍵點擊</string>
+</resources>

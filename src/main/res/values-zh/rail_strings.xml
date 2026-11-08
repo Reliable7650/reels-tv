@@ -21,4 +21,9 @@
     <string name="rail_like_pending">正在点赞…</string>
     <string name="rail_like_unavailable">点赞暂不可用</string>
     <string name="rail_like_unconfirmed">未能确认点赞</string>
+    <string name="rail_not_interested">不感兴趣</string>
+    <string name="rail_not_interested_pending">不感兴趣：提交中…</string>
+    <string name="rail_not_interested_done">不感兴趣：已提交</string>
+    <string name="rail_not_interested_unavailable">不感兴趣：暂不可用</string>
+    <string name="rail_not_interested_unconfirmed">不感兴趣：未能确认</string>
 </resources>

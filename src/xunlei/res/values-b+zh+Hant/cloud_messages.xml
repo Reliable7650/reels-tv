@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="cloud_back">返回播放器</string>
+    <string name="cloud_preparing">正在準備影片…</string>
+    <string name="cloud_uploading">正在上傳至迅雷 / Reels TV，請稍候。</string>
+    <string name="cloud_page_error">無法開啟迅雷頁面，請返回後重試。</string>
+    <string name="cloud_login">請在下方登入自己的迅雷帳號。</string>
+    <string name="cloud_verifying">正在雲端硬碟中核對上傳的檔案…</string>
+    <string name="cloud_saved">已儲存至迅雷 / Reels TV。</string>
+    <string name="cloud_missing_folder">請先在自己的迅雷雲端硬碟建立名為 Reels TV 的資料夾，然後重試。</string>
+    <string name="cloud_upload_failed">上傳失敗，請返回後重試。</string>
+    <string name="cloud_timeout">尚未確認上傳完成，請查看下方傳輸清單。</string>
+    <string name="cloud_download_failed">無法準備影片，請檢查網路、可用空間和影片後重試。</string>
+</resources>

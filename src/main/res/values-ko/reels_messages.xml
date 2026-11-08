@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="msg_script_missing">Reels 웹 제어 스크립트가 없습니다</string>
+    <string name="msg_player_missing">동영상을 열 수 없습니다. 앱을 다시 설치하세요</string>
+    <string name="msg_https_only">공식 Instagram HTTPS 페이지만 지원합니다</string>
+    <string name="msg_offline_test">오프라인 오류 복구 확인: 자동 연결이 일시 중지되었습니다</string>
+    <string name="msg_unofficial_blocked">공식이 아닌 페이지를 차단했습니다</string>
+    <string name="msg_open_instagram">Instagram을 여는 중…</string>
+    <string name="msg_verify_official">Instagram에서 인증을 요구합니다. 공식 페이지에서 직접 완료해 주세요</string>
+    <string name="msg_open_video">동영상을 여는 중…</string>
+    <string name="msg_login_official">공식 Instagram 페이지에서 로그인해 주세요</string>
+    <string name="msg_wait_video">Instagram 동영상을 기다리는 중…</string>
+    <string name="msg_page_network">Instagram 페이지를 불러올 수 없습니다. 네트워크를 확인하고 다시 시도하세요</string>
+    <string name="msg_page_unavailable">지금은 Instagram 페이지를 불러올 수 없습니다</string>
+    <string name="msg_login_required">계속 시청하거나 좋아요를 누르려면 Instagram에 로그인해야 합니다</string>
+    <string name="dialog_login_title">Instagram 로그인이 필요합니다</string>
+    <string name="dialog_login_body">로그인하지 않으면 Instagram에서 연속 탐색이 제한됩니다. 추천 동영상을 계속 보거나 좋아요를 누르려면 로그인하세요.</string>
+    <string name="action_open_official">공식 페이지 열기</string>
+    <string name="action_home">홈 화면으로 돌아가기</string>
+    <string name="msg_auth_paused">이전에 Instagram에서 로그인 또는 인증을 요청하여 자동 연결이 일시 중지되어 있습니다. 직접 계속할 때만 공식 페이지에 연결합니다</string>
+    <string name="msg_connection_paused">Instagram 연결이 일시 중지되었습니다. 나중에 직접 다시 시도하세요</string>
+    <string name="msg_rate_limited">Instagram에서 일시적으로 접근을 제한했습니다. 자동 연결이 중지되었으니 나중에 직접 다시 시도하세요</string>
+    <string name="dialog_auth_title">로그인 또는 인증이 일시 중지됨</string>
+    <string name="dialog_page_title">지금은 페이지를 열 수 없습니다</string>
+    <string name="dialog_cancel_note">취소하면 홈 화면으로 돌아가며 다시 연결하지 않습니다.</string>
+    <string name="action_continue_official">공식 페이지로 계속</string>
+    <string name="action_retry">직접 다시 시도</string>
+    <string name="msg_source_missing">현재 페이지에서 아직 재생 주소를 제공하지 않았습니다. 재생 버튼으로 다시 시도하거나 다음 항목으로 이동하세요</string>
+    <string name="msg_video_unavailable">동영상을 열 수 없습니다. 목록으로 돌아가 다시 시도하세요</string>
+    <string name="msg_video_page_network">동영상 페이지를 불러오지 못했습니다. 네트워크를 확인하고 다시 시도하세요</string>
+    <string name="msg_embed_unavailable">공개 재생 페이지를 사용할 수 없어 자동 시도를 중지했습니다</string>
+    <string name="msg_video_timeout">동영상을 여는 시간이 초과되었습니다. 웹 페이지로 돌아가 로그인 상태를 확인하거나 다시 시도하세요</string>
+    <string name="msg_playback_failed">동영상 재생에 실패했습니다. 재생 버튼을 눌러 다시 시도하세요</string>
+    <string name="msg_retry_wait">방금 시도했습니다. 잠시 후 직접 다시 시도하세요</string>
+    <string name="msg_single_video">단일 동영상입니다. 다른 동영상을 보려면 Reels 목록으로 돌아가세요</string>
+    <string name="msg_switching">릴스를 전환하는 중…</string>
+    <string name="msg_switch_failed">지금은 전환할 수 없습니다. 나중에 다시 시도하세요</string>
+    <string name="msg_no_favorite_url">저장할 수 있는 공개 릴스 주소를 아직 찾지 못했습니다</string>
+    <string name="msg_favorite_missing">Xunlei 저장 화면을 열 수 없습니다</string>
+    <string name="msg_browsing">웹 페이지를 탐색 중입니다. 사이드바로 돌아가면 재생이 계속됩니다</string>
+    <string name="msg_favorite_saved">Xunlei / Reels TV에 저장했습니다</string>
+    <string name="msg_not_interested_done">관심 없음을 전송했습니다</string>
+    <string name="msg_remote_hint">방향키로 이동 · 확인 버튼으로 클릭</string>
+</resources>

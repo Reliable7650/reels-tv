@@ -21,4 +21,9 @@
     <string name="rail_like_pending">いいねを送信中…</string>
     <string name="rail_like_unavailable">いいねを利用できません</string>
     <string name="rail_like_unconfirmed">いいねを確認できませんでした</string>
+    <string name="rail_not_interested">興味なし</string>
+    <string name="rail_not_interested_pending">興味なし：送信中…</string>
+    <string name="rail_not_interested_done">興味なし：送信済み</string>
+    <string name="rail_not_interested_unavailable">興味なし：利用できません</string>
+    <string name="rail_not_interested_unconfirmed">興味なし：確認できませんでした</string>
 </resources>

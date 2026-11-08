@@ -20,4 +20,9 @@
     <string name="rail_like_pending">Liking…</string>
     <string name="rail_like_unavailable">Like unavailable</string>
     <string name="rail_like_unconfirmed">Like not confirmed</string>
+    <string name="rail_not_interested">Not interested</string>
+    <string name="rail_not_interested_pending">Not interested: submitting…</string>
+    <string name="rail_not_interested_done">Not interested: submitted</string>
+    <string name="rail_not_interested_unavailable">Not interested: unavailable</string>
+    <string name="rail_not_interested_unconfirmed">Not interested: not confirmed</string>
 </resources>
